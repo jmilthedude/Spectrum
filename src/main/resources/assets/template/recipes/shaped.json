@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "   ",
+        " RR",
+        " RR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "template:template_item"
+        }
+    },
+    
+    "result":
+    {
+        "item": "template:template_block",
+        "count": 1
+    }
+}

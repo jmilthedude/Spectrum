@@ -1,0 +1,23 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+
+    {
+      "item": "template:template_item"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "template:template_block",
+        "count": 2
+    }
+}
