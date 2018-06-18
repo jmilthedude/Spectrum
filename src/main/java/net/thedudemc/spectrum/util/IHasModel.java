@@ -1,4 +1,4 @@
-package net.thedudemc.template.util;
+package net.thedudemc.spectrum.util;
 
 public interface IHasModel {
 	

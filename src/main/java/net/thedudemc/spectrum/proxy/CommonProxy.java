@@ -1,4 +1,4 @@
-package net.thedudemc.template.proxy;
+package net.thedudemc.spectrum.proxy;
 
 import net.minecraft.item.Item;
 

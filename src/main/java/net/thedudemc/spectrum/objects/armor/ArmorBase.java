@@ -1,11 +1,11 @@
-package net.thedudemc.template.objects.armor;
+package net.thedudemc.spectrum.objects.armor;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
-import net.thedudemc.template.Template;
-import net.thedudemc.template.init.ModItems;
-import net.thedudemc.template.util.IHasModel;
+import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.init.ModItems;
+import net.thedudemc.spectrum.util.IHasModel;
 
 public class ArmorBase extends ItemArmor implements IHasModel {
 
@@ -20,7 +20,7 @@ public class ArmorBase extends ItemArmor implements IHasModel {
 	
 	@Override
 	public void registerModels() {
-		Template.proxy.registerItemRenderer(this, 0, "inventory");
+		Spectrum.proxy.registerItemRenderer(this, 0, "inventory");
 		
 	}
 }

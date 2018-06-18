@@ -1,11 +1,11 @@
-package net.thedudemc.template.init;
+package net.thedudemc.spectrum.init;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.thedudemc.template.objects.blocks.BlockBase;
+import net.thedudemc.spectrum.objects.blocks.BlockBase;
 
 public class ModBlocks {
 

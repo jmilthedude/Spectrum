@@ -1,4 +1,4 @@
-package net.thedudemc.template;
+package net.thedudemc.spectrum;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -7,14 +7,14 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.thedudemc.template.proxy.CommonProxy;
-import net.thedudemc.template.util.Reference;
+import net.thedudemc.spectrum.proxy.CommonProxy;
+import net.thedudemc.spectrum.util.Reference;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
-public class Template {
+public class Spectrum {
 
 	@Instance
-	public static Template instance;
+	public static Spectrum instance;
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;

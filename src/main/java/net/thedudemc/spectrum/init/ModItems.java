@@ -1,4 +1,4 @@
-package net.thedudemc.template.init;
+package net.thedudemc.spectrum.init;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
-import net.thedudemc.template.objects.armor.ArmorBase;
-import net.thedudemc.template.objects.items.ItemBase;
-import net.thedudemc.template.objects.tools.ToolTemplateAxe;
-import net.thedudemc.template.objects.tools.ToolTemplateHoe;
-import net.thedudemc.template.objects.tools.ToolTemplatePickaxe;
-import net.thedudemc.template.objects.tools.ToolTemplateShovel;
-import net.thedudemc.template.objects.tools.ToolTemplateSword;
-import net.thedudemc.template.util.Reference;
+import net.thedudemc.spectrum.objects.armor.ArmorBase;
+import net.thedudemc.spectrum.objects.items.ItemBase;
+import net.thedudemc.spectrum.objects.tools.ToolTemplateAxe;
+import net.thedudemc.spectrum.objects.tools.ToolTemplateHoe;
+import net.thedudemc.spectrum.objects.tools.ToolTemplatePickaxe;
+import net.thedudemc.spectrum.objects.tools.ToolTemplateShovel;
+import net.thedudemc.spectrum.objects.tools.ToolTemplateSword;
+import net.thedudemc.spectrum.util.Reference;
 
 public class ModItems 
 {

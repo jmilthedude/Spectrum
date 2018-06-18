@@ -1,14 +1,14 @@
-package net.thedudemc.template.objects.blocks;
+package net.thedudemc.spectrum.objects.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.thedudemc.template.Template;
-import net.thedudemc.template.init.ModBlocks;
-import net.thedudemc.template.init.ModItems;
-import net.thedudemc.template.util.IHasModel;
+import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.init.ModBlocks;
+import net.thedudemc.spectrum.init.ModItems;
+import net.thedudemc.spectrum.util.IHasModel;
 
 public class BlockBase extends Block implements IHasModel {
 
@@ -25,7 +25,7 @@ public class BlockBase extends Block implements IHasModel {
 
 	@Override
 	public void registerModels() {
-		Template.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
+		Spectrum.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 		
 	}
 	

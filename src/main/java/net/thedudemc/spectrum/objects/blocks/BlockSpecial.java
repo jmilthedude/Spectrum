@@ -1,4 +1,4 @@
-package net.thedudemc.template.objects.blocks;
+package net.thedudemc.spectrum.objects.blocks;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

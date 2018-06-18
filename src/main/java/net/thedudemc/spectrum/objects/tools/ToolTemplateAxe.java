@@ -1,4 +1,4 @@
-package net.thedudemc.template.objects.tools;
+package net.thedudemc.spectrum.objects.tools;
 
 import java.util.Set;
 
@@ -11,9 +11,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
-import net.thedudemc.template.Template;
-import net.thedudemc.template.init.ModItems;
-import net.thedudemc.template.util.IHasModel;
+import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.init.ModItems;
+import net.thedudemc.spectrum.util.IHasModel;
 
 public class ToolTemplateAxe extends ItemTool implements IHasModel {
 	
@@ -38,7 +38,7 @@ public class ToolTemplateAxe extends ItemTool implements IHasModel {
 
 	@Override
 	public void registerModels() {
-		Template.proxy.registerItemRenderer(this, 0, "inventory");
+		Spectrum.proxy.registerItemRenderer(this, 0, "inventory");
 		
 	}
 }

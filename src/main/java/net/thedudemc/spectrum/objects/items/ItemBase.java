@@ -1,12 +1,12 @@
-package net.thedudemc.template.objects.items;
+package net.thedudemc.spectrum.objects.items;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thedudemc.template.Template;
-import net.thedudemc.template.util.IHasModel;
+import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.util.IHasModel;
 
 public class ItemBase extends Item implements IHasModel {
 
@@ -24,7 +24,7 @@ public class ItemBase extends Item implements IHasModel {
 
 	@Override
 	public void registerModels() {
-		Template.proxy.registerItemRenderer(this, 0, "inventory");
+		Spectrum.proxy.registerItemRenderer(this, 0, "inventory");
 		
 	}
 

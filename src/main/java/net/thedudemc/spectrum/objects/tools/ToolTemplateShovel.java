@@ -1,10 +1,10 @@
-package net.thedudemc.template.objects.tools;
+package net.thedudemc.spectrum.objects.tools;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSpade;
-import net.thedudemc.template.Template;
-import net.thedudemc.template.init.ModItems;
-import net.thedudemc.template.util.IHasModel;
+import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.init.ModItems;
+import net.thedudemc.spectrum.util.IHasModel;
 
 public class ToolTemplateShovel extends ItemSpade implements IHasModel {
 
@@ -20,7 +20,7 @@ public class ToolTemplateShovel extends ItemSpade implements IHasModel {
 		
 		@Override
 		public void registerModels() {
-			Template.proxy.registerItemRenderer(this, 0, "inventory");
+			Spectrum.proxy.registerItemRenderer(this, 0, "inventory");
 	}
 
 }

@@ -1,4 +1,4 @@
-package net.thedudemc.template.util.handlers;
+package net.thedudemc.spectrum.util.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -6,9 +6,9 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.thedudemc.template.init.ModBlocks;
-import net.thedudemc.template.init.ModItems;
-import net.thedudemc.template.util.IHasModel;
+import net.thedudemc.spectrum.init.ModBlocks;
+import net.thedudemc.spectrum.init.ModItems;
+import net.thedudemc.spectrum.util.IHasModel;
 
 @EventBusSubscriber 
 public class RegistryHandler {
