@@ -1,0 +1,22 @@
+//Items
+item.template_item.name=Template Item
+
+//Blocks
+tile.block_back_right.name=Back Right
+tile.block_back_left.name=Back Left
+tile.block_back_center.name=Back Center
+tile.block_front_right.name=Front Right
+tile.block_front_left.name=Front Left
+tile.block_front_center.name=Front Center
+tile.block_top_right.name=Top Right
+tile.block_top_left.name=Top Left
+tile.block_top_center.name=Top Center
+tile.block_mini_full.name=Mini Full
+
+//Armor
+
+
+
+//Tools
+
+
