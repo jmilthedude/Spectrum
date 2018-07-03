@@ -14,7 +14,7 @@ public class SpectrumTab extends CreativeTabs {
 		@Override
 		public ItemStack getTabIconItem() {
 			// TODO Auto-generated method stub
-			return new ItemStack(ModBlocks.BLOCK_MINI_FULL);
+			return new ItemStack(ModBlocks.TABLE_SINGLE);
 			}
 
 

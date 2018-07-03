@@ -1,0 +1,6 @@
+# Made in Blockbench 1.11.6
+newmtl 0
+map_Kd log_spruce.png
+newmtl 1
+map_Kd planks_oak.png
+newmtl none

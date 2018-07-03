@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "spectrum:table_back_right" },
+        "facing=south": { "model": "spectrum:table_back_right", "y": 180 },
+        "facing=west":  { "model": "spectrum:table_back_right", "y": 270 },
+        "facing=east":  { "model": "spectrum:table_back_right", "y": 90 }
+        }
+}

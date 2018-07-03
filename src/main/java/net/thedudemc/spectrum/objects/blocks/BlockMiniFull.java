@@ -1,7 +1,5 @@
 package net.thedudemc.spectrum.objects.blocks;
 
-import java.sql.Struct;
-
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -20,7 +18,8 @@ public class BlockMiniFull extends BlockHorizontal implements IHasModel {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyEnum<BlockMiniFull.EnumPartType> PART = PropertyEnum.<BlockMiniFull.EnumPartType>create("part", BlockMiniFull.EnumPartType.class);
-	// offset directions: (facing) {{{UP=0}, {DOWN=1}, {SOUTH=2}, {NORTH=3}, {EAST=4}, {WEST=5}}}
+	// offset directions: (facing) {{{UP=0}, {DOWN=1}, {SOUTH=2}, {NORTH=3},
+	// {EAST=4}, {WEST=5}}}
 	public static final int[][][] frontLeftOffset = new int[][][] { { { 0, 0, 0 }, { 0, 0, 0 }, { 1, 0, 0 }, { -1, 0, 0 }, { 0, 0, -1 }, { 0, 0, 1 } } };
 	public static final int[][][] frontRightOffset = new int[][][] { { { 0, 0, 0 }, { 0, 0, 0 }, { -1, 0, 0 }, { 1, 0, 0 }, { 0, 0, 1 }, { 0, 0, -1 } } };
 	public static final int[][][] backLeftOffset = new int[][][] { { { 0, 0, 0 }, { 0, 0, 0 }, { 1, 0, 1 }, { -1, 0, -1 }, { 1, 0, -1 }, { -1, 0, 1 } } };
@@ -44,6 +43,7 @@ public class BlockMiniFull extends BlockHorizontal implements IHasModel {
 		Spectrum.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
 
 	}
+
 
 	public static EnumPartType getPartType(IBlockState state) {
 		return state.getValue(PART);

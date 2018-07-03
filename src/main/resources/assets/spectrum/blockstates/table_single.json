@@ -1,0 +1,53 @@
+{
+	"forge_marker": 1,
+	"defaults": 
+	{
+		"custom": 
+		{
+			"flip-v": true
+		}
+	},
+
+	"variants": 
+	{
+		"normal": 
+		{
+			"model": "spectrum:table_full.obj",			
+			"transform": {"scale": 0.0625}
+		},
+
+		"facing=north": 
+		{
+			"model": "spectrum:table_full.obj",			
+			"transform": {"scale": 0.0625}
+			
+		},
+
+		"facing=south": 
+		{
+			"model": "spectrum:table_full.obj",
+			"y": 180,			
+			"transform": {"scale": 0.0625}
+		},
+
+		"facing=west": 
+		{
+			"model": "spectrum:table_full.obj",
+			"y": 270,			
+			"transform": {"scale": 0.0625}
+		},
+
+		"facing=east": 
+		{
+			"model": "spectrum:table_full.obj",
+			"y": 90,			
+			"transform": {"scale": 0.0625}
+		},
+
+		"inventory": 
+		{
+			"model": "spectrum:table_full.obj",			
+			"transform": {"scale": 0.0625}
+		}
+	}
+}
