@@ -1,0 +1,87 @@
+{	
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "blocks/log_oak",
+		"1": "blocks/planks_spruce",
+		"particle": "blocks/log_oak"
+	},
+	"elements": [
+		{
+			"name": "top",
+			"from": [0, 15, 0],
+			"to": [16, 17, 16],
+			"faces": {
+				"north": {"tintindex": 0, "uv": [0, 2, 16, 4], "texture": "#1"},
+				"east": {"tintindex": 0, "uv": [0, 11, 16, 13], "texture": "#1"},
+				"south": {"tintindex": 0, "uv": [0, 2, 16, 4], "texture": "#1"},
+				"west": {"tintindex": 0, "uv": [0, 7, 16, 9], "texture": "#1"},
+				"up": {"tintindex": 0, "uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"tintindex": 0, "uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		},
+		{
+			"name": "legNW",
+			"from": [1, 0, 1],
+			"to": [3, 15, 3],
+			"faces": {
+				"north": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"},
+				"east": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"},
+				"south": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"},
+				"west": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"},
+				"up": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"},
+				"down": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"}
+			}
+		},
+		{
+			"name": "legSW",
+			"from": [1, 0, 13],
+			"to": [3, 15, 15],
+			"faces": {
+				"north": {"tintindex": 0, "uv": [4, 0, 6, 14], "texture": "#0"},
+				"east": {"tintindex": 0, "uv": [6, 0, 8, 14], "texture": "#0"},
+				"south": {"tintindex": 0, "uv": [1, 0, 3, 14], "texture": "#0"},
+				"west": {"tintindex": 0, "uv": [0, 0, 2, 14], "texture": "#0"},
+				"up": {"tintindex": 0, "uv": [0, 0, 4, 14], "texture": "#0"},
+				"down": {"tintindex": 0, "uv": [0, 0, 4, 14], "texture": "#0"}
+			}
+		},
+		{
+			"name": "lower_brace",
+			"from": [3, 2, 2],
+			"to": [16, 4, 3],
+			"faces": {
+				"north": {"tintindex": 0, "uv": [0, 4, 13, 6], "texture": "#1"},
+				"east": {"tintindex": 0, "uv": [0, 4, 13, 6], "texture": "#1"},
+				"south": {"tintindex": 0, "uv": [0, 4, 13, 6], "texture": "#1"},
+				"west": {"tintindex": 0, "uv": [0, 4, 13, 6], "texture": "#1"},
+				"up": {"tintindex": 0, "uv": [0, 4, 13, 6], "texture": "#1"},
+				"down": {"tintindex": 0, "uv": [0, 4, 13, 6], "texture": "#1"}
+			}
+		},
+		{
+			"name": "side_brace",
+			"from": [2, 7, 3],
+			"to": [3, 9, 13],
+			"faces": {
+				"north": {"tintindex": 0, "uv": [0, 0, 10, 2], "texture": "#1"},
+				"east": {"tintindex": 0, "uv": [0, 0, 10, 2], "texture": "#1"},
+				"south": {"tintindex": 0, "uv": [0, 0, 10, 2], "texture": "#1"},
+				"west": {"tintindex": 0, "uv": [0, 0, 10, 2], "texture": "#1"},
+				"up": {"tintindex": 0, "uv": [0, 0, 10, 2], "texture": "#1"},
+				"down": {"tintindex": 0, "uv": [0, 0, 10, 2], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [0,
+		{
+			"name": "legs",
+			"isOpen": true,
+			"shade": true,
+			"display": {
+				"visibility": true,
+				"autouv": true
+			},
+			"children": [1, 2, 3, 4]
+		}
+	]
+}

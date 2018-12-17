@@ -1,0 +1,32 @@
+{
+	"forge_marker": 1,
+	"variants": 
+	{
+		"redliquiddye": 
+		{
+			"model": "forge:fluid",
+			"custom": 
+			{
+				"fluid": "redliquiddye"
+			}
+		},
+
+		"greenliquiddye": 
+		{
+			"model": "forge:fluid",
+			"custom": 
+			{
+				"fluid": "greenliquiddye"
+			}
+		},
+
+		"blueliquiddye": 
+		{
+			"model": "forge:fluid",
+			"custom": 
+			{
+				"fluid": "blueliquiddye"
+			}
+		}
+	}
+}
