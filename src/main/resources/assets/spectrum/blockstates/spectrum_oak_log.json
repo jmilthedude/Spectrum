@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":    { "model": "spectrum:spectrum_oak_log" },
+        "axis=z":     { "model": "spectrum:spectrum_oak_log", "x": 90 },
+        "axis=x":     { "model": "spectrum:spectrum_oak_log", "x": 90, "y": 90 },
+        "axis=none":   { "model": "spectrum_oak_bark" }
+    }
+}

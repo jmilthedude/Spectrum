@@ -2,30 +2,30 @@
 	"forge_marker": 1,
 	"variants": 
 	{
-		"redliquiddye": 
+		"block_red_liquid_dye": 
 		{
 			"model": "forge:fluid",
 			"custom": 
 			{
-				"fluid": "redliquiddye"
+				"fluid": "red_liquid_dye"
 			}
 		},
 
-		"greenliquiddye": 
+		"block_green_liquid_dye": 
 		{
 			"model": "forge:fluid",
 			"custom": 
 			{
-				"fluid": "greenliquiddye"
+				"fluid": "green_liquid_dye"
 			}
 		},
 
-		"blueliquiddye": 
+		"block_blue_liquid_dye": 
 		{
 			"model": "forge:fluid",
 			"custom": 
 			{
-				"fluid": "blueliquiddye"
+				"fluid": "blue_liquid_dye"
 			}
 		}
 	}

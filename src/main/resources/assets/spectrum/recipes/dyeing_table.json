@@ -1,0 +1,33 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": 
+	[
+		"G  ",
+		"III",
+		"B B"
+	],
+
+	"key": 
+	{
+		"B": 
+		{
+			"item": "minecraft:iron_block"
+		},
+
+		"I": 
+		{
+			"item": "minecraft:iron_ingot"
+		},
+
+		"G": 
+		{
+			"item": "minecraft:glass"
+		}
+	},
+
+	"result": 
+	{
+		"item": "spectrum:item_dyeing_table",
+		"count": 1
+	}
+}

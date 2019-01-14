@@ -2,49 +2,72 @@
 	"parent": "block/cube_all",
 	"variants": 
 	{
-		"facing=north,side=left": 
+		"facing=north,part=fluid": 
 		{
-			"model": "spectrum:dyeing_table_left"
+			"model": "spectrum:dyeing_table_fluid"
 		},
 
-		"facing=south,side=left": 
+		"facing=south,part=fluid": 
 		{
-			"model": "spectrum:dyeing_table_left",
+			"model": "spectrum:dyeing_table_fluid",
 			"y": 180
 		},
 
-		"facing=east,side=left": 
+		"facing=east,part=fluid": 
 		{
-			"model": "spectrum:dyeing_table_left",
+			"model": "spectrum:dyeing_table_fluid",
 			"y": 90
 		},
 
-		"facing=west,side=left": 
+		"facing=west,part=fluid": 
 		{
-			"model": "spectrum:dyeing_table_left",
+			"model": "spectrum:dyeing_table_fluid",
 			"y": 270
 		},
 
-		"facing=north,side=right": 
+		"facing=north,part=item": 
 		{
-			"model": "spectrum:dyeing_table_right"
+			"model": "spectrum:dyeing_table_item"
 		},
 
-		"facing=south,side=right": 
+		"facing=south,part=item": 
 		{
-			"model": "spectrum:dyeing_table_right",
+			"model": "spectrum:dyeing_table_item",
 			"y": 180
 		},
 
-		"facing=east,side=right": 
+		"facing=east,part=item": 
 		{
-			"model": "spectrum:dyeing_table_right",
+			"model": "spectrum:dyeing_table_item",
 			"y": 90
 		},
 
-		"facing=west,side=right": 
+		"facing=west,part=item": 
 		{
-			"model": "spectrum:dyeing_table_right",
+			"model": "spectrum:dyeing_table_item",
+			"y": 270
+		},
+
+		"facing=north,part=controller": 
+		{
+			"model": "spectrum:dyeing_table_controller"
+		},
+
+		"facing=south,part=controller": 
+		{
+			"model": "spectrum:dyeing_table_controller",
+			"y": 180
+		},
+
+		"facing=east,part=controller": 
+		{
+			"model": "spectrum:dyeing_table_controller",
+			"y": 90
+		},
+
+		"facing=west,part=controller": 
+		{
+			"model": "spectrum:dyeing_table_controller",
 			"y": 270
 		}
 	}

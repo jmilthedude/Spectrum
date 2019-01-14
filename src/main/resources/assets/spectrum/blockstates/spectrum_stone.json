@@ -1,0 +1,24 @@
+{
+	"forge_marker": 1,
+	"defaults": 
+	{
+		"model": "spectrum:spectrum_stone"
+	},
+
+	"variants": 
+	{
+		"normal": 
+		[
+			{
+				
+			}
+		],
+
+		"inventory": 
+		[
+			{
+				
+			}
+		]
+	}
+}

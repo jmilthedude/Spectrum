@@ -1,0 +1,7 @@
+{
+	"parent": "spectrum:block/spectrum_block",
+	"textures": 
+	{
+		"all": "spectrum:blocks/spectrum_cobblestone"
+	}
+}
