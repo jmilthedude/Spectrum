@@ -24,6 +24,7 @@ public class SpectrumItems {
 
 		registerItem(registry, "item_dyeing_table", new ItemDyeingTable());
 		registerItem(registry, "spectrum_stone", new ItemBlockBase(SpectrumBlocks.SPECTRUM_STONE));
+		registerItem(registry, "spectrum_grass", new ItemBlockBase(SpectrumBlocks.SPECTRUM_GRASS));
 		registerItem(registry, "spectrum_dirt", new ItemBlockBase(SpectrumBlocks.SPECTRUM_DIRT));
 		registerItem(registry, "spectrum_cobblestone", new ItemBlockBase(SpectrumBlocks.SPECTRUM_COBBLESTONE));
 		registerItem(registry, "spectrum_plank", new ItemBlockBase(SpectrumBlocks.SPECTRUM_PLANK));

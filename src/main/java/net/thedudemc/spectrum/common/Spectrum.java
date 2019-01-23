@@ -3,7 +3,6 @@ package net.thedudemc.spectrum.common;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +18,8 @@ import net.thedudemc.spectrum.client.SpectrumClient;
 import net.thedudemc.spectrum.common.config.Config;
 import net.thedudemc.spectrum.common.creativetab.SpectrumTab;
 import net.thedudemc.spectrum.common.init.SpectrumFluids;
+import net.thedudemc.spectrum.common.network.CleanBlockPacket;
+import net.thedudemc.spectrum.common.network.CleanBlockPacketHandler;
 import net.thedudemc.spectrum.common.network.ColorPacket;
 import net.thedudemc.spectrum.common.network.ColorPacketHandler;
 import net.thedudemc.spectrum.common.network.ConfigSync;
@@ -47,6 +48,7 @@ public class Spectrum {
 		SpectrumFluids.init();
 		PACKET.registerMessage(ColorPacketHandler.class, ColorPacket.class, 0, Side.SERVER);
 		PACKET.registerMessage(ConfigSyncHandler.class, ConfigSync.class, 1, Side.CLIENT);
+		PACKET.registerMessage(CleanBlockPacketHandler.class, CleanBlockPacket.class, 3, Side.SERVER);
 	}
 
 	@EventHandler
@@ -60,10 +62,7 @@ public class Spectrum {
 			SpectrumClient.initBlockColorHandler();
 		}
 		SpectrumUtils.addDyeRecipes();
-		SpectrumUtils.addBlockDrops();
-		for (Block block : Block.REGISTRY) {
-			System.out.println(block.getLocalizedName() + ",");
-		}
+		SpectrumUtils.addCleanRecipes();
 	}
 
 	public static final String getTranslationKey(String name) {

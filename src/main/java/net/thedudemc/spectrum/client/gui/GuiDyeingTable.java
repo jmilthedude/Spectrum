@@ -13,6 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.thedudemc.spectrum.common.Constants;
 import net.thedudemc.spectrum.common.Spectrum;
+import net.thedudemc.spectrum.common.network.CleanBlockPacket;
 import net.thedudemc.spectrum.common.network.ColorPacket;
 import net.thedudemc.spectrum.common.tileentity.Canister;
 import net.thedudemc.spectrum.common.tileentity.ContainerDyeingTable;
@@ -120,7 +121,13 @@ public class GuiDyeingTable extends GuiContainer {
 
 	@Override
 	protected void mouseReleased(int mouseX, int mouseY, int state) {
+		boolean clean = false;
 		if (this.selectedButton != null) {
+			if (this.selectedButton.id == 101) {
+				if (this.hexInput.getText().isEmpty()) {
+					clean = true;
+				}
+			}
 			if (this.selectedButton.id == 102) {
 				redValue = (int) ((redSlider.getSliderValue()) * 255);
 			}
@@ -133,7 +140,12 @@ public class GuiDyeingTable extends GuiContainer {
 			setColorFromSliders();
 			this.selectedButton.mouseReleased(mouseX, mouseY);
 		}
+
 		super.mouseReleased(mouseX, mouseY, state);
+		if (clean) {
+			this.hexInput.setText("");
+			clean = false;
+		}
 	}
 
 	@Override
@@ -146,9 +158,10 @@ public class GuiDyeingTable extends GuiContainer {
 				NBTTagCompound compound = new NBTTagCompound();
 				compound.setIntArray(NBTUtility.RGB_TAG, colorArray);
 				Spectrum.PACKET.sendToServer(new ColorPacket(compound, this.te.getPos()));
+			} else if (text.isEmpty()) {
+				Spectrum.PACKET.sendToServer(new CleanBlockPacket(this.te.getPos()));
 			}
 		}
-		super.actionPerformed(button);
 	}
 
 	@Override

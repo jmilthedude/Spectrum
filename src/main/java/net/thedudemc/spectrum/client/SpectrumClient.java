@@ -44,19 +44,28 @@ public class SpectrumClient {
 	@SubscribeEvent
 	static void onRegisterModels(final ModelRegistryEvent event) {
 		registerItemModel(SpectrumItems.ITEM_DYEING_TABLE, 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_STONE), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_DIRT), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_COBBLESTONE), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_PLANK), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_SAND), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_GRAVEL), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_OAK_LOG), 0, "inventory");
-		registerItemModel(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_OAK_LEAVES), 0, "inventory");
+		registerItemBlockModels();
 		registerFluidBlockModel(SpectrumFluids.fluidRedLiquidDye.getBlock());
 		registerFluidBlockModel(SpectrumFluids.fluidGreenLiquidDye.getBlock());
 		registerFluidBlockModel(SpectrumFluids.fluidBlueLiquidDye.getBlock());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileDyeingTableFluidInput.class, new FluidRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileDyeingTableController.class, new ControllerRenderer());
+	}
+
+	private static void registerFluidBlockModel(Block block) {
+		StateMapperBase customState = new StateMapperBase() {
+			@Override
+			protected ModelResourceLocation getModelResourceLocation(IBlockState iBlockState) {
+				return new ModelResourceLocation(new ResourceLocation(Constants.MODID, "fluids"), block.getRegistryName().getPath());
+			}
+		};
+		ModelLoader.setCustomStateMapper(block, customState);
+	}
+
+	private static void registerItemBlockModels() {
+		for (Block block : SpectrumBlocks.BLOCKS) {
+			registerItemModel(Item.getItemFromBlock(block), 0, "inventory");
+		}
 	}
 
 	private static void registerItemModel(final Item item, final int meta, final String variant) {
@@ -74,13 +83,4 @@ public class SpectrumClient {
 		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(name, variant));
 	}
 
-	private static void registerFluidBlockModel(Block block) {
-		StateMapperBase customState = new StateMapperBase() {
-			@Override
-			protected ModelResourceLocation getModelResourceLocation(IBlockState iBlockState) {
-				return new ModelResourceLocation(new ResourceLocation(Constants.MODID, "fluids"), block.getRegistryName().getPath());
-			}
-		};
-		ModelLoader.setCustomStateMapper(block, customState);
-	}
 }

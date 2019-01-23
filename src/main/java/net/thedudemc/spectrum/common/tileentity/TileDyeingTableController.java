@@ -41,6 +41,7 @@ public class TileDyeingTableController extends TileEntity implements ITickable {
 	public static final int UNIT_PER_DYE = Config.unitPerDyeItem;
 
 	private boolean doDye = false;
+	private boolean doClean = false;
 	private NBTTagCompound clientColor = new NBTTagCompound();
 	private BlockPos clientPos = null;
 
@@ -148,6 +149,20 @@ public class TileDyeingTableController extends TileEntity implements ITickable {
 					consumeDye();
 					world.notifyBlockUpdate(this.getPos(), world.getBlockState(pos), world.getBlockState(pos), 3);
 				}
+			}
+			if (doClean) {
+				ItemStack stackIn = itemHandler.getStackInSlot(INPUT_SLOT);
+				ItemStack output = itemHandler.getStackInSlot(OUTPUT_SLOT);
+				int amount = stackIn.getCount();
+				int waterCost = SpectrumUtils.getWaterDecrementForClean(amount);
+				if (!stackIn.isEmpty() && SpectrumUtils.isCleanable(stackIn) && output.isEmpty() && waterCost <= tank.getFluidAmount()) {
+					itemHandler.extractItem(INPUT_SLOT, amount, false);
+					ItemStack stackOut = SpectrumUtils.getOutput(stackIn, doClean);
+					stackOut.setCount(amount);
+					itemHandler.insertItem(OUTPUT_SLOT, stackOut, false);
+					tank.drain(waterCost, true);
+				}
+				doClean = false;
 			}
 		}
 	}
@@ -277,7 +292,7 @@ public class TileDyeingTableController extends TileEntity implements ITickable {
 	private void dyeBlocks() {
 		ItemStack stackIn = itemHandler.getStackInSlot(INPUT_SLOT);
 		if (SpectrumUtils.isDyeable(stackIn) && !isFull()) {
-			ItemStack possibleOut = SpectrumUtils.getOutput(stackIn);
+			ItemStack possibleOut = SpectrumUtils.getOutput(stackIn, false);
 			possibleOut.setTagCompound(getColorFromClient());
 			if (isValidOutput(itemHandler.getStackInSlot(OUTPUT_SLOT), possibleOut)) {
 				itemHandler.extractItem(INPUT_SLOT, 1, false);
@@ -357,6 +372,14 @@ public class TileDyeingTableController extends TileEntity implements ITickable {
 
 	public void setDoDye(boolean doDye) {
 		this.doDye = doDye;
+	}
+
+	public boolean isDoClean() {
+		return doClean;
+	}
+
+	public void setDoClean(boolean doClean) {
+		this.doClean = doClean;
 	}
 
 	public NBTTagCompound getColorFromClient() {

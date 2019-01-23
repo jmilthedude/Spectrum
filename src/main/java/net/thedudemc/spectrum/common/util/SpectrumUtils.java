@@ -5,23 +5,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.thedudemc.spectrum.common.block.BlockDyeable;
 import net.thedudemc.spectrum.common.config.Config;
 import net.thedudemc.spectrum.common.init.SpectrumBlocks;
 
 public class SpectrumUtils {
 
 	private static final Map<Item, Item> dyeableBlocks = new HashMap<Item, Item>();
-	private static final Map<Block, Block> blockDrops = new HashMap<Block, Block>();
+	private static final Map<Item, Item> cleanBlockOutput = new HashMap<Item, Item>();
 
 	private static final int WATER_COST = Config.waterCostPerDye;
 	private static final int DYE_COST = Config.unitCostIncrement;
 
 	public static void addDyeRecipes() {
 		dyeableBlocks.put(Item.getItemFromBlock(Blocks.STONE), Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_STONE));
+		dyeableBlocks.put(Item.getItemFromBlock(Blocks.GRASS), Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_GRASS));
 		dyeableBlocks.put(Item.getItemFromBlock(Blocks.DIRT), Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_DIRT));
 		dyeableBlocks.put(Item.getItemFromBlock(Blocks.COBBLESTONE), Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_COBBLESTONE));
 		dyeableBlocks.put(Item.getItemFromBlock(Blocks.PLANKS), Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_PLANK));
@@ -31,8 +32,9 @@ public class SpectrumUtils {
 		dyeableBlocks.put(Item.getItemFromBlock(Blocks.LEAVES), Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_OAK_LEAVES));
 	}
 
-	public static void addBlockDrops() {
-		blockDrops.put(SpectrumBlocks.SPECTRUM_STONE, SpectrumBlocks.SPECTRUM_COBBLESTONE);
+	public static void addCleanRecipes() {
+		cleanBlockOutput.put(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_STONE), Item.getItemFromBlock(Blocks.STONE));
+		cleanBlockOutput.put(Item.getItemFromBlock(SpectrumBlocks.SPECTRUM_GRASS), Item.getItemFromBlock(Blocks.GRASS));
 	}
 
 	public static boolean isDyeable(ItemStack stack) {
@@ -46,14 +48,30 @@ public class SpectrumUtils {
 		return false;
 	}
 
-	public static ItemStack getOutput(ItemStack stackIn) {
-		Item itemIn = stackIn.getItem();
-		if (dyeableBlocks.containsValue(itemIn)) {
-			return new ItemStack(itemIn);
+	public static boolean isCleanable(ItemStack stack) {
+		Item itemIn = stack.getItem();
+		if (Block.getBlockFromItem(itemIn) instanceof BlockDyeable) {
+			return true;
 		}
-		for (Item item : dyeableBlocks.keySet()) {
-			if (itemIn.equals(item)) {
-				return new ItemStack(dyeableBlocks.get(item));
+		return false;
+	}
+
+	public static ItemStack getOutput(ItemStack stackIn, boolean clean) {
+		Item itemIn = stackIn.getItem();
+		if (!clean) {
+			if (dyeableBlocks.containsValue(itemIn)) {
+				return new ItemStack(itemIn);
+			}
+			for (Item item : dyeableBlocks.keySet()) {
+				if (itemIn.equals(item)) {
+					return new ItemStack(dyeableBlocks.get(item));
+				}
+			}
+		} else {
+			for (Map.Entry<Item, Item> entry : dyeableBlocks.entrySet()) {
+				if (entry.getValue().equals(itemIn)) {
+					return new ItemStack(entry.getKey());
+				}
 			}
 		}
 		return ItemStack.EMPTY;
@@ -88,12 +106,7 @@ public class SpectrumUtils {
 		return count;
 	}
 
-	public static ItemStack getBlockDrop(IBlockState state, boolean hasSilkTouch) {
-		if (!hasSilkTouch && blockDrops.containsKey(state.getBlock())) {
-			return new ItemStack(blockDrops.get(state.getBlock()));
-		} else {
-			return new ItemStack(state.getBlock());
-		}
+	public static int getWaterDecrementForClean(int amount) {
+		return (int) ((float) amount * (1000 / 64));
 	}
-
 }

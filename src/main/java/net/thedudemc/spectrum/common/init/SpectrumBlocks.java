@@ -17,6 +17,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.thedudemc.spectrum.common.Constants;
 import net.thedudemc.spectrum.common.Spectrum;
 import net.thedudemc.spectrum.common.block.BlockDyeable;
+import net.thedudemc.spectrum.common.block.BlockDyeableCutout;
 import net.thedudemc.spectrum.common.block.BlockDyeablePillar;
 import net.thedudemc.spectrum.common.block.BlockDyeableTransparent;
 import net.thedudemc.spectrum.common.block.BlockDyeingTable;
@@ -32,6 +33,7 @@ public class SpectrumBlocks {
 
 	public static final Block DYEING_TABLE = new BlockDyeingTable();
 	public static final Block SPECTRUM_STONE = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(1.5f).setResistance(10.0F);
+	public static final Block SPECTRUM_GRASS = new BlockDyeableCutout(Material.GROUND, SoundType.PLANT).setHardness(0.6f);
 	public static final Block SPECTRUM_DIRT = new BlockDyeable(Material.GROUND, SoundType.GROUND).setHardness(0.5f);
 	public static final Block SPECTRUM_COBBLESTONE = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(2.0f).setResistance(10.0F);
 	public static final Block SPECTRUM_PLANK = new BlockDyeable(Material.WOOD, SoundType.WOOD).setHardness(2.0F).setResistance(5.0F);
@@ -39,15 +41,30 @@ public class SpectrumBlocks {
 	public static final Block SPECTRUM_GRAVEL = new BlockDyeable(Material.GROUND, SoundType.GROUND).setHardness(0.6F);
 	public static final Block SPECTRUM_OAK_LOG = new BlockDyeablePillar(Material.WOOD, SoundType.WOOD).setHardness(2.0F);
 	public static final Block SPECTRUM_OAK_LEAVES = new BlockDyeableTransparent(Material.LEAVES, SoundType.PLANT).setHardness(0.2F).setLightOpacity(1);
+	public static final Block SPECTRUM_GLASS = new BlockDyeableCutout(Material.GLASS, SoundType.GLASS).setHardness(0.3F);
+	public static final Block SPECTRUM_LAPIS_BLOCK = new BlockDyeable(Material.IRON, SoundType.STONE).setHardness(3.0f).setResistance(5.0F);
+	public static final Block SPECTRUM_SANDSTONE = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(0.8f);
+	public static final Block SPECTRUM_WEB = new BlockDyeableTransparent(Material.WEB, SoundType.CLOTH).setHardness(4.0f);
+	public static final Block SPECTRUM_WOOL = new BlockDyeable(Material.CLOTH, SoundType.CLOTH).setHardness(0.8f);
+	public static final Block SPECTRUM_BRICK_BLOCK = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(2.0f).setResistance(10.0F);
+	public static final Block SPECTRUM_MOSSY_COBBLESTONE = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(2.0f).setResistance(10.0F);
+	public static final Block SPECTRUM_OBSIDIAN = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(50.0f).setResistance(2000.0F);
+	public static final Block SPECTRUM_DIAMOND_BLOCK = new BlockDyeable(Material.IRON, SoundType.METAL).setHardness(5.0f).setResistance(10.0F);
+	public static final Block SPECTRUM_CRAFTING_TABLE = new BlockDyeable(Material.WOOD, SoundType.STONE).setHardness(2.5f);
+	public static final Block SPECTRUM_SNOW = new BlockDyeable(Material.SNOW, SoundType.SNOW).setHardness(0.2f);
+	public static final Block SPECTRUM_FENCE = new BlockDyeable(Material.ROCK, SoundType.STONE).setHardness(2.0f).setResistance(10.0F);
+
 	public static final Block RED_LIQUID_DYE = new BlockFluidClassic(SpectrumFluids.fluidRedLiquidDye, Material.WATER);
 	public static final Block GREEN_LIQUID_DYE = new BlockFluidClassic(SpectrumFluids.fluidGreenLiquidDye, Material.WATER);
 	public static final Block BLUE_LIQUID_DYE = new BlockFluidClassic(SpectrumFluids.fluidBlueLiquidDye, Material.WATER);
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
+		Spectrum.LOG.info("Registering Spectrum Blocks...");
 		IForgeRegistry<Block> registry = event.getRegistry();
 		registerBlock(registry, "dyeing_table", DYEING_TABLE);
 		registerBlock(registry, "spectrum_stone", SPECTRUM_STONE);
+		registerBlock(registry, "spectrum_grass", SPECTRUM_GRASS);
 		registerBlock(registry, "spectrum_dirt", SPECTRUM_DIRT);
 		registerBlock(registry, "spectrum_cobblestone", SPECTRUM_COBBLESTONE);
 		registerBlock(registry, "spectrum_plank", SPECTRUM_PLANK);
@@ -62,15 +79,16 @@ public class SpectrumBlocks {
 		GameRegistry.registerTileEntity(TileDyeingTableController.class, new ResourceLocation(Constants.MODID + ":tiledyeingtable"));
 		GameRegistry.registerTileEntity(TileDyeingTableFluidInput.class, new ResourceLocation(Constants.MODID + ":tiledyeingtablefluid"));
 		GameRegistry.registerTileEntity(TileDyeable.class, new ResourceLocation(Constants.MODID + ":tile_dyeable"));
-
 	}
 
 	private static void registerBlock(final IForgeRegistry<Block> registry, final String name, final Block block) {
 		block.setRegistryName(new ResourceLocation(Constants.MODID, name));
 		block.setTranslationKey(Spectrum.getTranslationKey(name));
 		registry.register(block);
-		if (block instanceof BlockDyeable)
+		if (block instanceof BlockDyeable) {
+			Spectrum.LOG.info("Adding block to list: " + block.getLocalizedName());
 			BLOCKS.add(block);
+		}
 	}
 
 }

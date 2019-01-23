@@ -5,11 +5,9 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -21,7 +19,6 @@ import net.minecraft.world.World;
 import net.thedudemc.spectrum.common.Spectrum;
 import net.thedudemc.spectrum.common.tileentity.TileDyeable;
 import net.thedudemc.spectrum.common.util.NBTUtility;
-import net.thedudemc.spectrum.common.util.SpectrumUtils;
 
 public class BlockDyeable extends Block implements ITileEntityProvider {
 
@@ -48,20 +45,13 @@ public class BlockDyeable extends Block implements ITileEntityProvider {
 		if (!world.isRemote) {
 			TileDyeable te = (TileDyeable) world.getTileEntity(pos);
 			if (!player.capabilities.isCreativeMode && te != null) {
-				ItemStack drop = SpectrumUtils.getBlockDrop(state, hasSilkTouch(player.getHeldItemMainhand()));
+				ItemStack drop = new ItemStack(state.getBlock());
 				NBTTagCompound compound = new NBTTagCompound();
 				compound.setIntArray(NBTUtility.RGB_TAG, te.getColors());
 				drop.setTagCompound(compound);
 				world.spawnEntity(new EntityItem(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, drop));
 			}
 		}
-	}
-
-	private boolean hasSilkTouch(ItemStack stack) {
-		if (EnchantmentHelper.getEnchantments(stack).containsKey(Enchantments.SILK_TOUCH)) {
-			return true;
-		}
-		return false;
 	}
 
 	@Override
