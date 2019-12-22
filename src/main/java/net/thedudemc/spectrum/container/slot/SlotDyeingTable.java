@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.tileentity;
+package net.thedudemc.spectrum.container.slot;
 
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemDye;

@@ -15,10 +15,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
-import net.thedudemc.spectrum.client.SpectrumClient;
+import net.thedudemc.spectrum.client.ColorHandler;
 import net.thedudemc.spectrum.config.Config;
 import net.thedudemc.spectrum.creativetab.SpectrumTab;
-import net.thedudemc.spectrum.init.SpectrumFluids;
+import net.thedudemc.spectrum.init.InitFluid;
 import net.thedudemc.spectrum.network.CleanBlockPacket;
 import net.thedudemc.spectrum.network.CleanBlockPacketHandler;
 import net.thedudemc.spectrum.network.ColorPacket;
@@ -52,7 +52,7 @@ public class Spectrum {
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
 		Config.init(event.getSuggestedConfigurationFile());
-		SpectrumFluids.init();
+		InitFluid.init();
 		PACKET.registerMessage(ColorPacketHandler.class, ColorPacket.class, 0, Side.SERVER);
 		PACKET.registerMessage(ConfigSyncHandler.class, ConfigSync.class, 1, Side.CLIENT);
 		PACKET.registerMessage(CleanBlockPacketHandler.class, CleanBlockPacket.class, 3, Side.SERVER);
@@ -66,7 +66,7 @@ public class Spectrum {
 	@EventHandler
 	public static void PostInit(FMLPostInitializationEvent event) {
 		if (event.getSide() == Side.CLIENT) {
-			SpectrumClient.initBlockColorHandler();
+			ColorHandler.initBlockColorHandler();
 		}
 		SpectrumUtils.addDyeRecipes();
 		SpectrumUtils.addCleanRecipes();

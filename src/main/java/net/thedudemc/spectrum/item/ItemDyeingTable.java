@@ -17,9 +17,9 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.BlockDyeingTable;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
 import net.thedudemc.spectrum.init.InitBlock;
 import net.thedudemc.spectrum.tileentity.Canister;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
 import net.thedudemc.spectrum.util.NBTUtility;
 
 public class ItemDyeingTable extends Item {

@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.util;
+package net.thedudemc.spectrum.client.render;
 
 import java.util.ArrayList;
 import java.util.List;

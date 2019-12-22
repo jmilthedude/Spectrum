@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.client.renderer;
+package net.thedudemc.spectrum.block.render;
 
 import org.lwjgl.opengl.GL11;
 
@@ -15,9 +15,9 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.thedudemc.spectrum.block.BlockDyeingTable;
-import net.thedudemc.spectrum.init.SpectrumFluids;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.init.InitFluid;
 import net.thedudemc.spectrum.tileentity.Canister;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
 
 public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTableController> {
 
@@ -74,7 +74,7 @@ public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTabl
 	}
 
 	private void drawRed(BufferBuilder renderer, EnumFacing facing, float scale) {
-		ResourceLocation redStill = SpectrumFluids.fluidRedLiquidDye.getStill();
+		ResourceLocation redStill = InitFluid.fluidRedLiquidDye.getStill();
 		TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(redStill.toString());
 		GlStateManager.color(1, 1, 1, .5f);
 
@@ -93,7 +93,7 @@ public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTabl
 	}
 
 	private void drawGreen(BufferBuilder renderer, EnumFacing facing, float scale) {
-		ResourceLocation still = SpectrumFluids.fluidGreenLiquidDye.getStill();
+		ResourceLocation still = InitFluid.fluidGreenLiquidDye.getStill();
 		TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(still.toString());
 		GlStateManager.color(1, 1, 1, .5f);
 
@@ -111,7 +111,7 @@ public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTabl
 	}
 
 	private void drawBlue(BufferBuilder renderer, EnumFacing facing, float scale) {
-		ResourceLocation still = SpectrumFluids.fluidBlueLiquidDye.getStill();
+		ResourceLocation still = InitFluid.fluidBlueLiquidDye.getStill();
 		TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(still.toString());
 		GlStateManager.color(1, 1, 1, .5f);
 

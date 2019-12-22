@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.tileentity;
+package net.thedudemc.spectrum.container;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -13,6 +13,8 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.container.slot.SlotDyeingTable;
 import net.thedudemc.spectrum.util.EnumSpectrumDye;
 
 public class ContainerDyeingTable extends Container {

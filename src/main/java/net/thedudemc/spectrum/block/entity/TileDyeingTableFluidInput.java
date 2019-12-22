@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.tileentity;
+package net.thedudemc.spectrum.block.entity;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;

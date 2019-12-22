@@ -3,10 +3,10 @@ package net.thedudemc.spectrum.init;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.thedudemc.spectrum.common.Constants;
+import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.fluid.FluidLiquidDye;
 
-public class SpectrumFluids {
+public class InitFluid {
 
 	public static Fluid fluidRedLiquidDye;
 	public static Fluid fluidGreenLiquidDye;
@@ -28,10 +28,10 @@ public class SpectrumFluids {
 	}
 
 	private static ResourceLocation getStillResource(String name) {
-		return new ResourceLocation(Constants.MODID, "blocks/" + name + "_still");
+		return new ResourceLocation(Spectrum.MODID, "blocks/" + name + "_still");
 	}
 
 	private static ResourceLocation getFlowResource(String name) {
-		return new ResourceLocation(Constants.MODID, "blocks/" + name + "_flow");
+		return new ResourceLocation(Spectrum.MODID, "blocks/" + name + "_flow");
 	}
 }

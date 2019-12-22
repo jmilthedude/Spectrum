@@ -6,15 +6,15 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import net.thedudemc.spectrum.fluid.LiquidDyeType;
+import net.thedudemc.spectrum.fluid.FluidLiquidDye.DyeType;
 import net.thedudemc.spectrum.item.ItemBlockBase;
 
 public class BlockLiquidDye extends BlockFluidClassic {
 
 	private final String name;
-	private final LiquidDyeType type;
+	private final DyeType type;
 
-	public BlockLiquidDye(Fluid fluid, Material material, String unlocalizedName, LiquidDyeType type) {
+	public BlockLiquidDye(Fluid fluid, Material material, String unlocalizedName, DyeType type) {
 		super(fluid, material);
 		this.name = unlocalizedName;
 		this.type = type;
@@ -22,7 +22,7 @@ public class BlockLiquidDye extends BlockFluidClassic {
 
 	}
 
-	public LiquidDyeType getType() {
+	public DyeType getType() {
 		return type;
 	}
 

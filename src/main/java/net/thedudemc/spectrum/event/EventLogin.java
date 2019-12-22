@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.util;
+package net.thedudemc.spectrum.event;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -9,7 +9,7 @@ import net.thedudemc.spectrum.config.Config;
 import net.thedudemc.spectrum.network.ConfigSync;
 
 @EventBusSubscriber
-public class EventHandler {
+public class EventLogin {
 
 	@SubscribeEvent
 	public static void onLogin(PlayerLoggedInEvent event) {

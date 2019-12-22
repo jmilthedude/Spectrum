@@ -17,7 +17,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.thedudemc.spectrum.Spectrum;
-import net.thedudemc.spectrum.tileentity.TileDyeable;
+import net.thedudemc.spectrum.block.entity.TileDyeable;
 import net.thedudemc.spectrum.util.NBTUtility;
 
 public class BlockDyeable extends Block implements ITileEntityProvider {

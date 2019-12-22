@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.client.renderer;
+package net.thedudemc.spectrum.block.render;
 
 import org.lwjgl.opengl.GL11;
 
@@ -19,8 +19,8 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thedudemc.spectrum.block.BlockDyeingTable;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableFluidInput;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableFluidInput;
 
 @SideOnly(Side.CLIENT)
 public class FluidRenderer extends TileEntitySpecialRenderer<TileDyeingTableFluidInput> {

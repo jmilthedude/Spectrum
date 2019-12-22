@@ -1,4 +1,4 @@
-package net.thedudemc.spectrum.tileentity;
+package net.thedudemc.spectrum.block.entity;
 
 import javax.annotation.Nullable;
 
@@ -21,7 +21,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.thedudemc.spectrum.config.Config;
-import net.thedudemc.spectrum.init.SpectrumItems;
+import net.thedudemc.spectrum.init.InitItem;
 import net.thedudemc.spectrum.item.ItemDyeingTable;
 import net.thedudemc.spectrum.util.EnumSpectrumDye;
 import net.thedudemc.spectrum.util.NBTUtility;
@@ -222,7 +222,7 @@ public class TileDyeingTableController extends TileEntity implements ITickable {
 	public ItemStack getTableItemStack() {
 		NBTTagCompound nbt = new NBTTagCompound();
 		NBTTagCompound tankNBT = new NBTTagCompound();
-		ItemStack stack = new ItemStack(SpectrumItems.ITEM_DYEING_TABLE, 1, 0, null);
+		ItemStack stack = new ItemStack(InitItem.ITEM_DYEING_TABLE, 1, 0, null);
 		int red = canisterRed.getCurrentAmount();
 		int green = canisterGreen.getCurrentAmount();
 		int blue = canisterBlue.getCurrentAmount();
@@ -420,6 +420,51 @@ public class TileDyeingTableController extends TileEntity implements ITickable {
 
 	public void setClientProgress(int progress) {
 		this.progress = progress;
+	}
+
+	public class Canister {
+		private int MAX_AMOUNT = Config.maxAmountDyeUnits;
+		private int currentAmount = 0;
+		private EnumDyeColor dyeType;
+
+		public Canister(EnumDyeColor dye) {
+			this.dyeType = dye;
+		}
+
+		public EnumDyeColor getDyeType() {
+			return dyeType;
+		}
+
+		public void setDyeType(EnumDyeColor dyeType) {
+			this.dyeType = dyeType;
+		}
+
+		public int getCurrentAmount() {
+			return currentAmount;
+		}
+
+		public void setCurrentAmount(int currentAmount) {
+			this.currentAmount = currentAmount;
+		}
+
+		public int getMaxAmount() {
+			return MAX_AMOUNT;
+		}
+
+		public void increaseAmount(int amountIn) {
+			if (currentAmount + amountIn >= MAX_AMOUNT)
+				currentAmount = MAX_AMOUNT;
+			else
+				currentAmount += amountIn;
+		}
+
+		public void decreaseAmount(int amountIn) {
+			if (currentAmount - amountIn <= 0)
+				currentAmount = 0;
+			else
+				currentAmount -= amountIn;
+		}
+
 	}
 
 }

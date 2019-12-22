@@ -29,8 +29,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.thedudemc.spectrum.Spectrum;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableFluidInput;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableFluidInput;
 
 @SuppressWarnings(value = { "deprecation" })
 public class BlockDyeingTable extends Block implements ITileEntityProvider {

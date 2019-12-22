@@ -2,7 +2,9 @@ package net.thedudemc.spectrum.client;
 
 import java.awt.Color;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
@@ -10,11 +12,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thedudemc.spectrum.tileentity.TileDyeable;
+import net.thedudemc.spectrum.block.entity.TileDyeable;
+import net.thedudemc.spectrum.init.InitBlock;
 import net.thedudemc.spectrum.util.NBTUtility;
 
 @SideOnly(Side.CLIENT)
 public class ColorHandler implements IBlockColor, IItemColor {
+
+	public static void initBlockColorHandler() {
+		IBlockColor blockColorHandler = new ColorHandler();
+		IItemColor itemColorHandler = new ColorHandler();
+		for (Block block : InitBlock.BLOCKS) {
+			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(blockColorHandler, block);
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemColorHandler, block);
+		}
+	}
 
 	@Override
 	public int colorMultiplier(ItemStack stack, int tintIndex) {

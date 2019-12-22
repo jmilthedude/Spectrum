@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
 
 public class ColorPacketHandler implements IMessageHandler<ColorPacket, IMessage> {
 	// Do note that the default constructor is required, but implicitly defined in

@@ -5,7 +5,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
 
 public class CleanBlockPacketHandler implements IMessageHandler<CleanBlockPacket, IMessage> {
 

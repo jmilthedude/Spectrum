@@ -13,7 +13,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.thedudemc.spectrum.tileentity.TileDyeable;
+import net.thedudemc.spectrum.block.entity.TileDyeable;
 
 public class BlockDyeablePillar extends BlockDyeable implements ITileEntityProvider {
 

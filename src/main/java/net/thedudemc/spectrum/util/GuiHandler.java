@@ -7,9 +7,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
 import net.thedudemc.spectrum.client.gui.GuiDyeingTable;
-import net.thedudemc.spectrum.tileentity.ContainerDyeingTable;
-import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.container.ContainerDyeingTable;
 
 public class GuiHandler implements IGuiHandler {
 
