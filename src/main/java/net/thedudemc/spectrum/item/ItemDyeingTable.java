@@ -15,53 +15,57 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.BlockDyeingTable;
 import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.canister.Canister;
 import net.thedudemc.spectrum.init.InitBlock;
-import net.thedudemc.spectrum.tileentity.Canister;
+import net.thedudemc.spectrum.init.InitItem;
 import net.thedudemc.spectrum.util.NBTUtility;
 
 public class ItemDyeingTable extends Item {
 
 	public ItemDyeingTable() {
 		this.setMaxStackSize(1);
-		this.setCreativeTab(Spectrum.SPECTRUM_TAB);
+		this.setCreativeTab(InitItem.SPECTRUM_TAB);
 
 	}
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote) {
+		if (worldIn.isRemote)
 			return EnumActionResult.SUCCESS;
-		} else if (facing != EnumFacing.UP) {
-			return EnumActionResult.FAIL;
-		} else {
-			EnumFacing enumFacing = player.getHorizontalFacing();
-			ItemStack stack = player.getHeldItem(hand);
-			boolean isBlockReplaceable = worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos);
-			if (!isBlockReplaceable) {
-				pos = pos.up();
-			}
-			BlockPos side = pos.offset(enumFacing.rotateYCCW());
-			BlockPos upLeft = side.up();
-			boolean isSideReplaceable = worldIn.getBlockState(side).getBlock().isReplaceable(worldIn, side) || worldIn.isAirBlock(side);
-			boolean isUpLeftReplaceable = worldIn.getBlockState(upLeft).getBlock().isReplaceable(worldIn, upLeft) || worldIn.isAirBlock(upLeft);
-			boolean placeable = isSideReplaceable && isUpLeftReplaceable;
-			if (placeable) {
-				worldIn.setBlockState(pos, InitBlock.DYEING_TABLE.getDefaultState().withProperty(BlockDyeingTable.FACING, enumFacing).withProperty(BlockDyeingTable.PART, BlockDyeingTable.EnumPart.ITEM_OUT));
-				worldIn.setBlockState(side, InitBlock.DYEING_TABLE.getDefaultState().withProperty(BlockDyeingTable.FACING, enumFacing).withProperty(BlockDyeingTable.PART, BlockDyeingTable.EnumPart.FLUID_IN));
-				worldIn.setBlockState(upLeft, InitBlock.DYEING_TABLE.getDefaultState().withProperty(BlockDyeingTable.FACING, enumFacing).withProperty(BlockDyeingTable.PART, BlockDyeingTable.EnumPart.CONTROLLER));
-				worldIn.playSound((EntityPlayer) null, pos, SoundEvents.BLOCK_METAL_PLACE, SoundCategory.BLOCKS, (SoundType.METAL.getVolume() + 1.0F) / 2.0F, SoundType.WOOD.getPitch());
 
-				TileDyeingTableController te = (TileDyeingTableController) worldIn.getTileEntity(upLeft);
-				te.restoreTileEntity(stack, this);
-				stack.shrink(1);
-				return EnumActionResult.SUCCESS;
-			} else {
-				return EnumActionResult.FAIL;
-			}
+		if (facing != EnumFacing.UP)
+			return EnumActionResult.FAIL;
+
+		EnumFacing enumFacing = player.getHorizontalFacing();
+		ItemStack stack = player.getHeldItem(hand);
+		boolean isBlockReplaceable = worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos);
+		if (!isBlockReplaceable) {
+			pos = pos.up();
 		}
+		BlockPos side = pos.offset(enumFacing.rotateYCCW());
+		BlockPos upLeft = side.up();
+		boolean isSideReplaceable = worldIn.getBlockState(side).getBlock().isReplaceable(worldIn, side) || worldIn.isAirBlock(side);
+		boolean isUpLeftReplaceable = worldIn.getBlockState(upLeft).getBlock().isReplaceable(worldIn, upLeft) || worldIn.isAirBlock(upLeft);
+		boolean placeable = isSideReplaceable && isUpLeftReplaceable;
+		if (placeable) {
+			worldIn.setBlockState(pos,
+					InitBlock.DYEING_TABLE.getDefaultState().withProperty(BlockDyeingTable.FACING, enumFacing).withProperty(BlockDyeingTable.PART, BlockDyeingTable.EnumPart.ITEM_OUT));
+			worldIn.setBlockState(side,
+					InitBlock.DYEING_TABLE.getDefaultState().withProperty(BlockDyeingTable.FACING, enumFacing).withProperty(BlockDyeingTable.PART, BlockDyeingTable.EnumPart.FLUID_IN));
+			worldIn.setBlockState(upLeft,
+					InitBlock.DYEING_TABLE.getDefaultState().withProperty(BlockDyeingTable.FACING, enumFacing).withProperty(BlockDyeingTable.PART, BlockDyeingTable.EnumPart.CONTROLLER));
+			worldIn.playSound((EntityPlayer) null, pos, SoundEvents.BLOCK_METAL_PLACE, SoundCategory.BLOCKS, (SoundType.METAL.getVolume() + 1.0F) / 2.0F, SoundType.WOOD.getPitch());
+
+			TileDyeingTableController te = (TileDyeingTableController) worldIn.getTileEntity(upLeft);
+			te.restoreTileEntity(stack, this);
+			stack.shrink(1);
+			return EnumActionResult.SUCCESS;
+		} else {
+			return EnumActionResult.FAIL;
+		}
+
 	}
 
 	public static final int MAX_DYE = Canister.MAX_AMOUNT;

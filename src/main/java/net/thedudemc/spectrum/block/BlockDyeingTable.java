@@ -31,6 +31,7 @@ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
 import net.thedudemc.spectrum.block.entity.TileDyeingTableFluidInput;
+import net.thedudemc.spectrum.init.InitItem;
 
 @SuppressWarnings(value = { "deprecation" })
 public class BlockDyeingTable extends Block implements ITileEntityProvider {
@@ -44,7 +45,7 @@ public class BlockDyeingTable extends Block implements ITileEntityProvider {
 
 	public BlockDyeingTable() {
 		super(Material.WOOD, MapColor.BROWN);
-		this.setCreativeTab(Spectrum.SPECTRUM_TAB);
+		this.setCreativeTab(InitItem.SPECTRUM_TAB);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockDyeingTable.EnumPart.FLUID_IN));
 		this.setHardness(1.0f);
 

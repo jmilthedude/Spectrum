@@ -16,8 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.entity.TileDyeable;
+import net.thedudemc.spectrum.init.InitItem;
 import net.thedudemc.spectrum.util.NBTUtility;
 
 public class BlockDyeable extends Block implements ITileEntityProvider {
@@ -26,7 +26,7 @@ public class BlockDyeable extends Block implements ITileEntityProvider {
 
 	public BlockDyeable(Material materialIn, SoundType soundType) {
 		super(materialIn);
-		this.setCreativeTab(Spectrum.SPECTRUM_TAB);
+		this.setCreativeTab(InitItem.SPECTRUM_TAB);
 		this.soundType = soundType;
 	}
 

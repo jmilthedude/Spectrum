@@ -16,8 +16,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.thedudemc.spectrum.block.BlockDyeingTable;
 import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.canister.Canister;
 import net.thedudemc.spectrum.init.InitFluid;
-import net.thedudemc.spectrum.tileentity.Canister;
 
 public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTableController> {
 
@@ -81,11 +81,17 @@ public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTabl
 		double offset = 0;
 		// @formatter:off
 		switch (facing) {
-		case EAST: break;
-		case NORTH: break;
-		case SOUTH: offset = 0.625d; break;
-		case WEST: break;
-		default: break;
+		case EAST:
+			break;
+		case NORTH:
+			break;
+		case SOUTH:
+			offset = 0.625d;
+			break;
+		case WEST:
+			break;
+		default:
+			break;
 		}
 		// @formatter:on
 		drawTextures(renderer, facing, scale, sprite, offset);
@@ -100,11 +106,16 @@ public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTabl
 		double offset = 0.3125d;
 		// @formatter:off
 		switch (facing) {
-		case EAST: break;
-		case NORTH: break;
-		case SOUTH: break;
-		case WEST: break;
-		default: break;
+		case EAST:
+			break;
+		case NORTH:
+			break;
+		case SOUTH:
+			break;
+		case WEST:
+			break;
+		default:
+			break;
 		}
 		// @formatter:on
 		drawTextures(renderer, facing, scale, sprite, offset);
@@ -118,11 +129,17 @@ public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTabl
 		double offset = 0.625d;
 		// @formatter:off
 		switch (facing) {
-		case EAST: break;
-		case NORTH: break;
-		case SOUTH: offset = 0d; break;
-		case WEST: break;
-		default: break;
+		case EAST:
+			break;
+		case NORTH:
+			break;
+		case SOUTH:
+			offset = 0d;
+			break;
+		case WEST:
+			break;
+		default:
+			break;
 		}
 		// @formatter:on
 		drawTextures(renderer, facing, scale, sprite, offset);

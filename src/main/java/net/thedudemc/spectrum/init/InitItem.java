@@ -1,5 +1,6 @@
 package net.thedudemc.spectrum.init;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
@@ -7,11 +8,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.creativetab.SpectrumTab;
 import net.thedudemc.spectrum.item.ItemDyeingTable;
 
 @ObjectHolder(Spectrum.MODID)
 @Mod.EventBusSubscriber(modid = Spectrum.MODID)
 public class InitItem {
+
+	public static final CreativeTabs SPECTRUM_TAB = new SpectrumTab("spectrumtab");
 
 	public static final Item ITEM_DYEING_TABLE = new ItemDyeingTable();
 

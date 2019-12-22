@@ -47,7 +47,6 @@ public class Spectrum {
 	@Instance
 	public static Spectrum INSTANCE;
 
-	public static final CreativeTabs SPECTRUM_TAB = new SpectrumTab("spectrumtab");
 
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {

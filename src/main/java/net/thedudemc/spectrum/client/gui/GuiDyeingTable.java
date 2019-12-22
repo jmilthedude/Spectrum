@@ -13,10 +13,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.entity.canister.Canister;
 import net.thedudemc.spectrum.container.ContainerDyeingTable;
 import net.thedudemc.spectrum.network.CleanBlockPacket;
 import net.thedudemc.spectrum.network.ColorPacket;
-import net.thedudemc.spectrum.tileentity.Canister;
 import net.thedudemc.spectrum.util.EnumSpectrumDye;
 import net.thedudemc.spectrum.util.NBTUtility;
 
