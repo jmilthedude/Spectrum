@@ -34,9 +34,6 @@ public class Spectrum {
 	public static final String MODID = "spectrum";
 	public static final String NAME = "Spectrum";
 	public static final String VERSION = "0.1";
-	public static final String ACCEPTED_VERSIONS = "[1.12.2]";
-	public static final String CLIENT_PROXY_CLASS = "net.thedudemc.spectrum.proxy.ClientProxy";
-	public static final String COMMON_PROXY_CLASS = "net.thedudemc.spectrum.proxy.CommonProxy";
 	public static final SimpleNetworkWrapper PACKET = NetworkRegistry.INSTANCE.newSimpleChannel("spectrum_packets");
 
 	static {
