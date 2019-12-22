@@ -7,12 +7,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.BlockFluidClassic;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.BlockDyeable;
@@ -25,8 +22,6 @@ import net.thedudemc.spectrum.block.entity.TileDyeingTableController;
 import net.thedudemc.spectrum.block.entity.TileDyeingTableFluidInput;
 import net.thedudemc.spectrum.item.ItemBlockBase;
 
-@Mod.EventBusSubscriber(modid = Spectrum.MODID)
-@ObjectHolder(Spectrum.MODID)
 public class InitBlock {
 
 	public static List<Block> BLOCKS = new ArrayList<Block>();

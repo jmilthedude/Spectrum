@@ -15,8 +15,8 @@ import net.thedudemc.spectrum.block.render.ControllerRenderer;
 import net.thedudemc.spectrum.block.render.FluidRenderer;
 
 public class InitModel {
-	public static void registerItemModels() {
 
+	public static void registerItemModels() {
 		registerSimpleItemModel(InitItem.ITEM_DYEING_TABLE, 0);
 
 		registerBlockModel(InitBlock.SPECTRUM_STONE, 0);
