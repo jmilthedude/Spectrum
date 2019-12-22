@@ -14,10 +14,10 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
-import net.thedudemc.spectrum.common.block.BlockDyeingTable;
-import net.thedudemc.spectrum.common.init.SpectrumFluids;
-import net.thedudemc.spectrum.common.tileentity.Canister;
-import net.thedudemc.spectrum.common.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.block.BlockDyeingTable;
+import net.thedudemc.spectrum.init.SpectrumFluids;
+import net.thedudemc.spectrum.tileentity.Canister;
+import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
 
 public class ControllerRenderer extends TileEntitySpecialRenderer<TileDyeingTableController> {
 

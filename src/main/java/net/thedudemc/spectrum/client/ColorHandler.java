@@ -10,8 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thedudemc.spectrum.common.tileentity.TileDyeable;
-import net.thedudemc.spectrum.common.util.NBTUtility;
+import net.thedudemc.spectrum.tileentity.TileDyeable;
+import net.thedudemc.spectrum.util.NBTUtility;
 
 @SideOnly(Side.CLIENT)
 public class ColorHandler implements IBlockColor, IItemColor {

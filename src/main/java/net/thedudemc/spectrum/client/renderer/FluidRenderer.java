@@ -18,9 +18,9 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.thedudemc.spectrum.common.block.BlockDyeingTable;
-import net.thedudemc.spectrum.common.tileentity.TileDyeingTableController;
-import net.thedudemc.spectrum.common.tileentity.TileDyeingTableFluidInput;
+import net.thedudemc.spectrum.block.BlockDyeingTable;
+import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.tileentity.TileDyeingTableFluidInput;
 
 @SideOnly(Side.CLIENT)
 public class FluidRenderer extends TileEntitySpecialRenderer<TileDyeingTableFluidInput> {

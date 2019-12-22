@@ -11,21 +11,20 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-import net.thedudemc.spectrum.common.Constants;
-import net.thedudemc.spectrum.common.Spectrum;
-import net.thedudemc.spectrum.common.network.CleanBlockPacket;
-import net.thedudemc.spectrum.common.network.ColorPacket;
-import net.thedudemc.spectrum.common.tileentity.Canister;
-import net.thedudemc.spectrum.common.tileentity.ContainerDyeingTable;
-import net.thedudemc.spectrum.common.tileentity.TileDyeingTableController;
-import net.thedudemc.spectrum.common.util.EnumSpectrumDye;
-import net.thedudemc.spectrum.common.util.NBTUtility;
+import net.thedudemc.spectrum.Spectrum;
+import net.thedudemc.spectrum.network.CleanBlockPacket;
+import net.thedudemc.spectrum.network.ColorPacket;
+import net.thedudemc.spectrum.tileentity.Canister;
+import net.thedudemc.spectrum.tileentity.ContainerDyeingTable;
+import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.util.EnumSpectrumDye;
+import net.thedudemc.spectrum.util.NBTUtility;
 
 public class GuiDyeingTable extends GuiContainer {
 	public static final int WIDTH = 176;
 	public static final int HEIGHT = 226;
 
-	private static final ResourceLocation background = new ResourceLocation(Constants.MODID, "textures/gui/dyeing_table.png");
+	private static final ResourceLocation background = new ResourceLocation(Spectrum.MODID, "textures/gui/dyeing_table.png");
 	private TileDyeingTableController te;
 	private ContainerDyeingTable container;
 	private GuiTextField hexInput;

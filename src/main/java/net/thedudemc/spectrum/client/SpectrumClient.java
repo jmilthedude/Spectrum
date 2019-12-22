@@ -19,23 +19,23 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.client.renderer.ControllerRenderer;
 import net.thedudemc.spectrum.client.renderer.FluidRenderer;
-import net.thedudemc.spectrum.common.Constants;
-import net.thedudemc.spectrum.common.init.SpectrumBlocks;
-import net.thedudemc.spectrum.common.init.SpectrumFluids;
-import net.thedudemc.spectrum.common.init.SpectrumItems;
-import net.thedudemc.spectrum.common.tileentity.TileDyeingTableController;
-import net.thedudemc.spectrum.common.tileentity.TileDyeingTableFluidInput;
+import net.thedudemc.spectrum.init.InitBlock;
+import net.thedudemc.spectrum.init.SpectrumFluids;
+import net.thedudemc.spectrum.init.SpectrumItems;
+import net.thedudemc.spectrum.tileentity.TileDyeingTableController;
+import net.thedudemc.spectrum.tileentity.TileDyeingTableFluidInput;
 
 @SideOnly(Side.CLIENT)
-@Mod.EventBusSubscriber(modid = Constants.MODID, value = Side.CLIENT)
+@Mod.EventBusSubscriber(modid = Spectrum.MODID, value = Side.CLIENT)
 public class SpectrumClient {
 
 	public static void initBlockColorHandler() {
 		IBlockColor blockColorHandler = new ColorHandler();
 		IItemColor itemColorHandler = new ColorHandler();
-		for (Block block : SpectrumBlocks.BLOCKS) {
+		for (Block block : InitBlock.BLOCKS) {
 			Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(blockColorHandler, block);
 			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(itemColorHandler, block);
 		}
@@ -56,14 +56,14 @@ public class SpectrumClient {
 		StateMapperBase customState = new StateMapperBase() {
 			@Override
 			protected ModelResourceLocation getModelResourceLocation(IBlockState iBlockState) {
-				return new ModelResourceLocation(new ResourceLocation(Constants.MODID, "fluids"), block.getRegistryName().getPath());
+				return new ModelResourceLocation(new ResourceLocation(Spectrum.MODID, "fluids"), block.getRegistryName().getPath());
 			}
 		};
 		ModelLoader.setCustomStateMapper(block, customState);
 	}
 
 	private static void registerItemBlockModels() {
-		for (Block block : SpectrumBlocks.BLOCKS) {
+		for (Block block : InitBlock.BLOCKS) {
 			registerItemModel(Item.getItemFromBlock(block), 0, "inventory");
 		}
 	}
