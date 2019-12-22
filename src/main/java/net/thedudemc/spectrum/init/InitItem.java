@@ -21,7 +21,7 @@ public class InitItem {
 
 	private static void registerItem(final IForgeRegistry<Item> registry, final String name, final Item item) {
 		item.setRegistryName(new ResourceLocation(Spectrum.MODID, name));
-		item.setTranslationKey(Spectrum.getTranslationKey(name));
+		item.setTranslationKey(name);
 
 		registry.register(item);
 	}

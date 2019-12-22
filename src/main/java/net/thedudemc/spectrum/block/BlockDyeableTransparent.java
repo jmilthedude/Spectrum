@@ -8,8 +8,8 @@ import net.minecraft.util.BlockRenderLayer;
 
 public class BlockDyeableTransparent extends BlockDyeable implements ITileEntityProvider {
 
-	public BlockDyeableTransparent(Material materialIn, SoundType soundType) {
-		super(materialIn, soundType);
+	public BlockDyeableTransparent(String name, Material materialIn, SoundType soundType) {
+		super(name, materialIn, soundType);
 	}
 
 	@Override

@@ -3,7 +3,6 @@ package net.thedudemc.spectrum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -17,8 +16,8 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.thedudemc.spectrum.client.ColorHandler;
 import net.thedudemc.spectrum.config.Config;
-import net.thedudemc.spectrum.creativetab.SpectrumTab;
 import net.thedudemc.spectrum.init.InitFluid;
+import net.thedudemc.spectrum.init.InitModel;
 import net.thedudemc.spectrum.network.CleanBlockPacket;
 import net.thedudemc.spectrum.network.CleanBlockPacketHandler;
 import net.thedudemc.spectrum.network.ColorPacket;
@@ -47,9 +46,11 @@ public class Spectrum {
 	@Instance
 	public static Spectrum INSTANCE;
 
-
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
+		if (event.getSide() == Side.CLIENT) {
+			InitModel.registerTileEntityRenderers();
+		}
 		Config.init(event.getSuggestedConfigurationFile());
 		InitFluid.init();
 		PACKET.registerMessage(ColorPacketHandler.class, ColorPacket.class, 0, Side.SERVER);
@@ -77,10 +78,6 @@ public class Spectrum {
 
 	public static ResourceLocation getResource(String name) {
 		return new ResourceLocation(Spectrum.MODID, name);
-	}
-
-	public static String getTranslationKey(String name) {
-		return Spectrum.MODID + "." + name;
 	}
 
 }

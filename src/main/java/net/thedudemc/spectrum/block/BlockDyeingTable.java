@@ -43,8 +43,10 @@ public class BlockDyeingTable extends Block implements ITileEntityProvider {
 	public static final AxisAlignedBB CONTROLLER_AABB_WEST = new AxisAlignedBB(0, 0, 0, 0.3125D, 1, 1);
 	public static final AxisAlignedBB CONTROLLER_AABB_SOUTH = new AxisAlignedBB(1, 1, 0.6875D, 0, 0, 1);
 
-	public BlockDyeingTable() {
+	public BlockDyeingTable(String name) {
 		super(Material.WOOD, MapColor.BROWN);
+		this.setRegistryName(Spectrum.getResource(name));
+		this.setTranslationKey(name);
 		this.setCreativeTab(InitItem.SPECTRUM_TAB);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(PART, BlockDyeingTable.EnumPart.FLUID_IN));
 		this.setHardness(1.0f);

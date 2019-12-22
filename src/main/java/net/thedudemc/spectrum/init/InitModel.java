@@ -31,6 +31,8 @@ public class InitModel {
 		registerFluidBlockModel(InitFluid.fluidRedLiquidDye.getBlock());
 		registerFluidBlockModel(InitFluid.fluidGreenLiquidDye.getBlock());
 		registerFluidBlockModel(InitFluid.fluidBlueLiquidDye.getBlock());
+		
+		registerTileEntityRenderers();
 
 		// ModelLoader.setCustomMeshDefinition(InitItem.SPAWN_EGG_TRADER, new
 		// TraderEggMesh(InitItem.SPAWN_EGG_TRADER));

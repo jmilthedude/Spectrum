@@ -8,8 +8,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockDyeableCutout extends BlockDyeable {
 
-	public BlockDyeableCutout(Material materialIn, SoundType soundType) {
-		super(materialIn, soundType);
+	public BlockDyeableCutout(String name, Material materialIn, SoundType soundType) {
+		super(name, materialIn, soundType);
 	}
 
 	@SideOnly(Side.CLIENT)

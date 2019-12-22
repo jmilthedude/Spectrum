@@ -19,8 +19,8 @@ public class BlockDyeablePillar extends BlockDyeable implements ITileEntityProvi
 
 	public static final PropertyEnum<EnumFacing.Axis> AXIS = PropertyEnum.<EnumFacing.Axis>create("axis", EnumFacing.Axis.class);
 
-	public BlockDyeablePillar(Material materialIn, SoundType soundType) {
-		super(materialIn, soundType);
+	public BlockDyeablePillar(String name, Material materialIn, SoundType soundType) {
+		super(name, materialIn, soundType);
 	}
 
 	@Override
