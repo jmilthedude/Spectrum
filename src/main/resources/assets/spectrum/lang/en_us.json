@@ -1,0 +1,20 @@
+{
+  "itemGroup.the_vault": "The Vault",
+  "key.category.the_vault": "The Vault",
+  "key.the_vault.open_ability_tree": "Open Skill Tree",
+  "key.the_vault.open_raffle_screen": "Open Raffle Screen",
+  "key.the_vault.ability_key": "Ability Key",
+  "key.the_vault.global_timer_key": "Global Timer Key",
+  "tooltip.requires_research": "Requires Research:",
+  "overlay.requires_research.usage": "You need to research %s in order to use this item.",
+  "overlay.requires_research.craft": "You need to research %s in order to craft this item.",
+  "overlay.requires_research.hit": "You need to research %s in order to hit this block.",
+  "overlay.requires_research.interact_block": "You need to research %s in order to interact with this block.",
+  "overlay.requires_research.interact_entity": "You need to research %s in order to interact with this entity.",
+  "container.vault.vault_crate": "Vault Crate",
+  "entity.the_vault.monster_eye": "Monster Eye",
+  "entity.the_vault.boogieman": "Boogie Man",
+  "entity.the_vault.robot": "Vault Robot",
+  "entity.the_vault.blue_blaze": "Soul Blaze",
+  "death.attack.vaultFailed": "%1$s ran out of time, F"
+}
