@@ -3,7 +3,6 @@ package net.thedudemc.spectrum.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,6 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.entity.SpectrumBlockTileEntity;
 import net.thedudemc.spectrum.init.ModBlocks;
 
@@ -20,8 +20,10 @@ import javax.annotation.Nullable;
 
 public class SpectrumBlock extends Block {
 
-    public SpectrumBlock() {
-        super(Properties.from(Blocks.STONE));
+    public SpectrumBlock(Properties properties, String name) {
+        super(properties);
+
+        this.setRegistryName(Spectrum.id(name));
 
     }
 

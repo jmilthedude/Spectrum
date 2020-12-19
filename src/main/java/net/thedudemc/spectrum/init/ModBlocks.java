@@ -1,6 +1,8 @@
 package net.thedudemc.spectrum.init;
 
+import net.minecraft.block.AbstractBlock.Properties;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -18,13 +20,21 @@ public class ModBlocks {
 
     public static List<Block> BLOCKS = new ArrayList<>();
 
-    public static final SpectrumBlock SPECTRUM_STONE = new SpectrumBlock();
+    public static final SpectrumBlock STONE = new SpectrumBlock(Properties.from(Blocks.STONE), "stone");
+    public static final SpectrumBlock GRANITE = new SpectrumBlock(Properties.from(Blocks.GRANITE), "granite");
+    public static final SpectrumBlock POLISHED_GRANITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_GRANITE), "polished_granite");
+    public static final SpectrumBlock DIORITE = new SpectrumBlock(Properties.from(Blocks.DIORITE), "diorite");
+    public static final SpectrumBlock POLISHED_DIORITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_DIORITE), "polished_diorite");
 
     public static final TileEntityType<SpectrumBlockTileEntity> SPECTRUM_BLOCK_TILE_ENTITY =
-            TileEntityType.Builder.create(SpectrumBlockTileEntity::new, SPECTRUM_STONE).build(null);
+            TileEntityType.Builder.create(SpectrumBlockTileEntity::new, BLOCKS.toArray(new SpectrumBlock[BLOCKS.size()])).build(null);
 
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        registerBlock(event, SPECTRUM_STONE, Spectrum.id("stone"));
+        registerBlock(event, STONE);
+        registerBlock(event, GRANITE);
+        registerBlock(event, POLISHED_GRANITE);
+        registerBlock(event, DIORITE);
+        registerBlock(event, POLISHED_DIORITE);
     }
 
     public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -32,13 +42,14 @@ public class ModBlocks {
     }
 
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
-        registerBlockItem(event, SPECTRUM_STONE);
+        for (Block block : BLOCKS) {
+            registerBlockItem(event, block);
+        }
     }
 
     /* --------------------------------------------- */
 
-    private static void registerBlock(RegistryEvent.Register<Block> event, Block block, ResourceLocation id) {
-        block.setRegistryName(id);
+    private static void registerBlock(RegistryEvent.Register<Block> event, Block block) {
         event.getRegistry().register(block);
         BLOCKS.add(block);
     }
