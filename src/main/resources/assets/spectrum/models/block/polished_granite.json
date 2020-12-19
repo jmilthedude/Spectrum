@@ -1,0 +1,6 @@
+{
+  "parent": "spectrum:block/spectrum_block",
+  "textures": {
+    "all": "spectrum:block/polished_granite"
+  }
+}
