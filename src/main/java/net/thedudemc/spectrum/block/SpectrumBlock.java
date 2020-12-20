@@ -12,7 +12,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.entity.SpectrumBlockTileEntity;
 import net.thedudemc.spectrum.init.ModBlocks;
 
@@ -20,11 +19,8 @@ import javax.annotation.Nullable;
 
 public class SpectrumBlock extends Block {
 
-    public SpectrumBlock(Properties properties, String name) {
+    public SpectrumBlock(Properties properties) {
         super(properties);
-
-        this.setRegistryName(Spectrum.id(name));
-
     }
 
     @Override

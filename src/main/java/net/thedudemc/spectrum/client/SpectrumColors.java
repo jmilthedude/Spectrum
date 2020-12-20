@@ -42,6 +42,8 @@ public class SpectrumColors implements IBlockColor, IItemColor {
     @Override
     public int getColor(ItemStack stack, int tintIndex) {
         CompoundNBT nbt = stack.getOrCreateTag();
-        return nbt.getInt("Color");
+        if (nbt.contains("Color"))
+            return nbt.getInt("Color");
+        return 0xffffff;
     }
 }

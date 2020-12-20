@@ -20,36 +20,47 @@ public class ModBlocks {
 
     public static List<Block> BLOCKS = new ArrayList<>();
 
-    public static final SpectrumBlock STONE = new SpectrumBlock(Properties.from(Blocks.STONE), "stone");
-    public static final SpectrumBlock GRANITE = new SpectrumBlock(Properties.from(Blocks.GRANITE), "granite");
-    public static final SpectrumBlock POLISHED_GRANITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_GRANITE), "polished_granite");
-    public static final SpectrumBlock DIORITE = new SpectrumBlock(Properties.from(Blocks.DIORITE), "diorite");
-    public static final SpectrumBlock POLISHED_DIORITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_DIORITE), "polished_diorite");
+    public static final SpectrumBlock STONE = new SpectrumBlock(Properties.from(Blocks.STONE));
+    public static final SpectrumBlock GRANITE = new SpectrumBlock(Properties.from(Blocks.GRANITE));
+    public static final SpectrumBlock POLISHED_GRANITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_GRANITE));
+    public static final SpectrumBlock DIORITE = new SpectrumBlock(Properties.from(Blocks.DIORITE));
+    public static final SpectrumBlock POLISHED_DIORITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_DIORITE));
 
     public static final TileEntityType<SpectrumBlockTileEntity> SPECTRUM_BLOCK_TILE_ENTITY =
-            TileEntityType.Builder.create(SpectrumBlockTileEntity::new, BLOCKS.toArray(new SpectrumBlock[BLOCKS.size()])).build(null);
+            TileEntityType.Builder.create(SpectrumBlockTileEntity::new, STONE,
+                    GRANITE,
+                    POLISHED_GRANITE,
+                    DIORITE,
+                    POLISHED_DIORITE).build(null);
 
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        registerBlock(event, STONE);
-        registerBlock(event, GRANITE);
-        registerBlock(event, POLISHED_GRANITE);
-        registerBlock(event, DIORITE);
-        registerBlock(event, POLISHED_DIORITE);
+        registerBlock(event, STONE, "stone");
+        registerBlock(event, GRANITE, "granite");
+        registerBlock(event, POLISHED_GRANITE, "polished_granite");
+        registerBlock(event, DIORITE, "diorite");
+        registerBlock(event, POLISHED_DIORITE, "polished_diorite");
     }
 
     public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
         registerTileEntity(event, SPECTRUM_BLOCK_TILE_ENTITY, Spectrum.id("spectrum_block_tile_entity"));
     }
 
+    public static void registerTileEntityRenderers() {
+        //ClientRegistry.bindTileEntityRenderer(ModBlocks.SPECTRUM_BLOCK_TILE_ENTITY, SpectrumBlockRenderer::new);
+    }
+
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
-        for (Block block : BLOCKS) {
-            registerBlockItem(event, block);
-        }
+        registerBlockItem(event, STONE);
+        registerBlockItem(event, GRANITE);
+        registerBlockItem(event, POLISHED_GRANITE);
+        registerBlockItem(event, DIORITE);
+        registerBlockItem(event, POLISHED_DIORITE);
     }
 
     /* --------------------------------------------- */
 
-    private static void registerBlock(RegistryEvent.Register<Block> event, Block block) {
+    private static void registerBlock(RegistryEvent.Register<Block> event, Block block, String name) {
+        block.setRegistryName(Spectrum.id(name));
         event.getRegistry().register(block);
         BLOCKS.add(block);
     }

@@ -69,7 +69,6 @@ public class SpectrumBlockTileEntity extends TileEntity {
     }
 
     public void sendUpdates() {
-        this.world.markBlockRangeForRenderUpdate(getPos(), getBlockState(), getBlockState());
         this.world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.DEFAULT);
         this.world.notifyNeighborsOfStateChange(pos, this.getBlockState().getBlock());
         this.markDirty();
