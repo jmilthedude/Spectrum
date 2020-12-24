@@ -1,12 +1,14 @@
 package net.thedudemc.spectrum.init;
 
+import net.thedudemc.spectrum.config.DyeConfig;
+
 public class ModConfigs {
 
-    //public static StreamerMultipliersConfig STREAMER_MULTIPLIERS;
+    public static DyeConfig DYE_CONFIG;
 
 
     public static void register() {
-        //STREAMER_MULTIPLIERS = (StreamerMultipliersConfig) new StreamerMultipliersConfig().readConfig();
+        DYE_CONFIG = (DyeConfig) new DyeConfig().readConfig();
 
     }
 
