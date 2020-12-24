@@ -60,8 +60,8 @@ public class SpectrumBlock extends Block {
         if (te instanceof SpectrumBlockTileEntity) {
             SpectrumBlockTileEntity spectrumTile = (SpectrumBlockTileEntity) te;
             CompoundNBT nbt = stack.getOrCreateTag();
-
             spectrumTile.setColor(nbt.getInt("Color"));
+            spectrumTile.sendUpdates();
         }
 
         super.onBlockPlacedBy(worldIn, pos, state, placer, stack);

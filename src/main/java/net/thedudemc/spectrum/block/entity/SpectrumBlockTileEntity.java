@@ -6,7 +6,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.common.util.Constants;
 import net.thedudemc.spectrum.init.ModBlocks;
 
 import javax.annotation.Nullable;
@@ -52,13 +51,15 @@ public class SpectrumBlockTileEntity extends TileEntity {
 
     @Override
     public void handleUpdateTag(BlockState state, CompoundNBT tag) {
-        read(state, tag);
+        setColor(tag.getInt("Color"));
+        if (this.world != null && this.world.isRemote) {
+            this.world.notifyBlockUpdate(pos, state, state, 3);
+        }
     }
 
     @Nullable
     @Override
     public SUpdateTileEntityPacket getUpdatePacket() {
-
         return new SUpdateTileEntityPacket(pos, -1, getUpdateTag());
     }
 
@@ -69,7 +70,7 @@ public class SpectrumBlockTileEntity extends TileEntity {
     }
 
     public void sendUpdates() {
-        this.world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), Constants.BlockFlags.DEFAULT);
+        this.world.notifyBlockUpdate(pos, getBlockState(), getBlockState(), 3);
         this.world.notifyNeighborsOfStateChange(pos, this.getBlockState().getBlock());
         this.markDirty();
     }
