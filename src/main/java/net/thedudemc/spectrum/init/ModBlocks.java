@@ -11,7 +11,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.thedudemc.spectrum.Spectrum;
 import net.thedudemc.spectrum.block.SpectrumBlock;
+import net.thedudemc.spectrum.block.SpectrumTableBlock;
 import net.thedudemc.spectrum.block.entity.SpectrumBlockTileEntity;
+import net.thedudemc.spectrum.block.entity.SpectrumTableTileEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +22,16 @@ public class ModBlocks {
 
     public static List<Block> BLOCKS = new ArrayList<>();
 
+    public static final SpectrumTableBlock SPECTRUM_TABLE = new SpectrumTableBlock();
+
     public static final SpectrumBlock STONE = new SpectrumBlock(Properties.from(Blocks.STONE));
     public static final SpectrumBlock GRANITE = new SpectrumBlock(Properties.from(Blocks.GRANITE));
     public static final SpectrumBlock POLISHED_GRANITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_GRANITE));
     public static final SpectrumBlock DIORITE = new SpectrumBlock(Properties.from(Blocks.DIORITE));
     public static final SpectrumBlock POLISHED_DIORITE = new SpectrumBlock(Properties.from(Blocks.POLISHED_DIORITE));
+
+    public static final TileEntityType<SpectrumTableTileEntity> SPECTRUM_TABLE_TILE_ENTITY =
+            TileEntityType.Builder.create(SpectrumTableTileEntity::new, SPECTRUM_TABLE).build(null);
 
     public static final TileEntityType<SpectrumBlockTileEntity> SPECTRUM_BLOCK_TILE_ENTITY =
             TileEntityType.Builder.create(SpectrumBlockTileEntity::new, STONE,
@@ -34,6 +41,7 @@ public class ModBlocks {
                     POLISHED_DIORITE).build(null);
 
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
+        registerBlock(event, SPECTRUM_TABLE, "spectrum_table");
         registerBlock(event, STONE, "stone");
         registerBlock(event, GRANITE, "granite");
         registerBlock(event, POLISHED_GRANITE, "polished_granite");
@@ -42,6 +50,7 @@ public class ModBlocks {
     }
 
     public static void registerTileEntities(RegistryEvent.Register<TileEntityType<?>> event) {
+        registerTileEntity(event, SPECTRUM_TABLE_TILE_ENTITY, Spectrum.id("spectrum_table_tile_entity"));
         registerTileEntity(event, SPECTRUM_BLOCK_TILE_ENTITY, Spectrum.id("spectrum_block_tile_entity"));
     }
 
@@ -50,6 +59,7 @@ public class ModBlocks {
     }
 
     public static void registerBlockItems(RegistryEvent.Register<Item> event) {
+        registerBlockItem(event, SPECTRUM_TABLE);
         registerBlockItem(event, STONE);
         registerBlockItem(event, GRANITE);
         registerBlockItem(event, POLISHED_GRANITE);

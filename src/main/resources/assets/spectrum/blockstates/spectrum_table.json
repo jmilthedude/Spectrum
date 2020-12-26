@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=south,part=basin": {
+      "model": "spectrum:block/spectrum_table"
+    },
+    "facing=east,part=basin": {
+      "model": "spectrum:block/spectrum_table",
+      "y": 270
+    },
+    "facing=north,part=basin": {
+      "model": "spectrum:block/spectrum_table",
+      "y": 180
+    },
+    "facing=west,part=basin": {
+      "model": "spectrum:block/spectrum_table",
+      "y": 90
+    },
+    "facing=south,part=tubes": {
+      "model": "spectrum:block/spectrum_table_other"
+    },
+    "facing=east,part=tubes": {
+      "model": "spectrum:block/spectrum_table_other",
+      "y": 270
+    },
+    "facing=north,part=tubes": {
+      "model": "spectrum:block/spectrum_table_other",
+      "y": 180
+    },
+    "facing=west,part=tubes": {
+      "model": "spectrum:block/spectrum_table_other",
+      "y": 90
+    },
+    "facing=south,part=tank": {
+      "model": "spectrum:block/spectrum_table_other"
+    },
+    "facing=east,part=tank": {
+      "model": "spectrum:block/spectrum_table_other",
+      "y": 270
+    },
+    "facing=north,part=tank": {
+      "model": "spectrum:block/spectrum_table_other",
+      "y": 180
+    },
+    "facing=west,part=tank": {
+      "model": "spectrum:block/spectrum_table_other",
+      "y": 90
+    }
+  }
+}

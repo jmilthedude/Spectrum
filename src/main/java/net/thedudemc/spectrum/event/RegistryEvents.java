@@ -1,8 +1,11 @@
 package net.thedudemc.spectrum.event;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +29,11 @@ public class RegistryEvents {
     @SubscribeEvent
     public static void onTileEntityRegister(RegistryEvent.Register<TileEntityType<?>> event) {
         ModBlocks.registerTileEntities(event);
+    }
+
+    @SubscribeEvent
+    public static void onModelRegister(ModelRegistryEvent event) {
+        RenderTypeLookup.setRenderLayer(ModBlocks.SPECTRUM_TABLE, RenderType.getCutout());
     }
 
 }
