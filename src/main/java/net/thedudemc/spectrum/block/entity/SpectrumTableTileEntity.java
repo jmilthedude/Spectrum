@@ -1,6 +1,7 @@
 package net.thedudemc.spectrum.block.entity;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -9,11 +10,13 @@ import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.thedudemc.spectrum.init.ModBlocks;
+import net.thedudemc.spectrum.init.ModConfigs;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -37,6 +40,13 @@ public class SpectrumTableTileEntity extends TileEntity {
         super(tileEntityTypeIn);
     }
 
+    public FluidTank getTank() {
+        return tank;
+    }
+
+    public ItemStackHandler getItemHandler() {
+        return itemHandler;
+    }
 
     @Override
     public CompoundNBT write(CompoundNBT compound) {
@@ -100,7 +110,18 @@ public class SpectrumTableTileEntity extends TileEntity {
     }
 
     private FluidTank createFluidHandler() {
-        return null;
+        return new FluidTank(ModConfigs.DYE_CONFIG.getInt("max_water")) {
+            @Override
+            protected void onContentsChanged() {
+                sendUpdates();
+                super.onContentsChanged();
+            }
+
+            @Override
+            public boolean isFluidValid(FluidStack stack) {
+                return stack.getFluid() == Fluids.WATER;
+            }
+        };
     }
 
     public void sendUpdates() {
